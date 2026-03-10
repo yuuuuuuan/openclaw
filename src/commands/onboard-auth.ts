@@ -9,6 +9,8 @@ export {
   applyCloudflareAiGatewayProviderConfig,
   applyHuggingfaceConfig,
   applyHuggingfaceProviderConfig,
+  applyGroqConfig,
+  applyGroqProviderConfig,
   applyKilocodeConfig,
   applyKilocodeProviderConfig,
   applyQianfanConfig,
@@ -58,6 +60,7 @@ export {
 } from "./onboard-auth.config-opencode.js";
 export {
   CLOUDFLARE_AI_GATEWAY_DEFAULT_MODEL_REF,
+  GROQ_DEFAULT_MODEL_REF,
   KILOCODE_DEFAULT_MODEL_REF,
   LITELLM_DEFAULT_MODEL_REF,
   OPENROUTER_DEFAULT_MODEL_REF,
@@ -67,6 +70,7 @@ export {
   setByteplusApiKey,
   setQianfanApiKey,
   setGeminiApiKey,
+  setGroqApiKey,
   setKilocodeApiKey,
   setLitellmApiKey,
   setKimiCodingApiKey,
@@ -94,6 +98,7 @@ export {
   XAI_DEFAULT_MODEL_REF,
 } from "./onboard-auth.credentials.js";
 export {
+  buildGroqModelDefinition,
   buildKilocodeModelDefinition,
   buildMinimaxApiModelDefinition,
   buildMinimaxModelDefinition,
@@ -115,6 +120,9 @@ export {
   MOONSHOT_BASE_URL,
   MOONSHOT_DEFAULT_MODEL_ID,
   MOONSHOT_DEFAULT_MODEL_REF,
+  GROQ_BASE_URL,
+  GROQ_DEFAULT_MODEL_ID,
+  GROQ_DEFAULT_MODEL_REF,
   MISTRAL_BASE_URL,
   MISTRAL_DEFAULT_MODEL_ID,
   resolveZaiBaseUrl,
