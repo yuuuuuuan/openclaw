@@ -5,6 +5,7 @@ type OnboardProviderAuthOptionKey = keyof Pick<
   | "anthropicApiKey"
   | "openaiApiKey"
   | "mistralApiKey"
+  | "groqApiKey"
   | "openrouterApiKey"
   | "kilocodeApiKey"
   | "aiGatewayApiKey"
@@ -58,6 +59,13 @@ export const ONBOARD_PROVIDER_AUTH_FLAGS: ReadonlyArray<OnboardProviderAuthFlag>
     cliFlag: "--mistral-api-key",
     cliOption: "--mistral-api-key <key>",
     description: "Mistral API key",
+  },
+  {
+    optionKey: "groqApiKey",
+    authChoice: "groq-api-key",
+    cliFlag: "--groq-api-key",
+    cliOption: "--groq-api-key <key>",
+    description: "Groq API key",
   },
   {
     optionKey: "openrouterApiKey",

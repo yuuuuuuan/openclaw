@@ -99,6 +99,7 @@ export {
 } from "./onboard-auth.credentials.js";
 export {
   buildKilocodeModelDefinition,
+  buildGroqModelDefinition,
   buildMinimaxApiModelDefinition,
   buildMinimaxModelDefinition,
   buildMistralModelDefinition,
@@ -124,6 +125,8 @@ export {
   GROQ_BASE_URL,
   GROQ_DEFAULT_MODEL_ID,
   MISTRAL_DEFAULT_MODEL_ID,
+  GROQ_BASE_URL,
+  GROQ_DEFAULT_MODEL_ID,
   resolveZaiBaseUrl,
   ZAI_CODING_CN_BASE_URL,
   ZAI_DEFAULT_MODEL_ID,

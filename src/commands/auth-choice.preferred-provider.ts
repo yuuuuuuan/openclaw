@@ -20,6 +20,7 @@ const PREFERRED_PROVIDER_BY_AUTH_CHOICE: Partial<Record<AuthChoice, string>> = {
   "kimi-code-api-key": "kimi-coding",
   "gemini-api-key": "google",
   "google-gemini-cli": "google-gemini-cli",
+  "groq-api-key": "groq",
   "mistral-api-key": "mistral",
   "zai-api-key": "zai",
   "zai-coding-global": "zai",

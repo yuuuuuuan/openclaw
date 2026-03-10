@@ -504,6 +504,18 @@ export async function setMistralApiKey(
   });
 }
 
+export async function setGroqApiKey(
+  key: SecretInput,
+  agentDir?: string,
+  options?: ApiKeyStorageOptions,
+) {
+  upsertAuthProfile({
+    profileId: "groq:default",
+    credential: buildApiKeyCredential("groq", key, undefined, options),
+    agentDir: resolveAuthAgentDir(agentDir),
+  });
+}
+
 export async function setKilocodeApiKey(
   key: SecretInput,
   agentDir?: string,

@@ -28,6 +28,7 @@ export type AuthChoice =
   | "apiKey"
   | "gemini-api-key"
   | "google-gemini-cli"
+  | "groq-api-key"
   | "zai-api-key"
   | "zai-coding-global"
   | "zai-coding-cn"
@@ -72,6 +73,7 @@ export type AuthChoiceGroupId =
   | "synthetic"
   | "venice"
   | "mistral"
+  | "groq"
   | "qwen"
   | "together"
   | "huggingface"
@@ -115,6 +117,7 @@ export type OnboardOptions = {
   anthropicApiKey?: string;
   openaiApiKey?: string;
   mistralApiKey?: string;
+  groqApiKey?: string;
   openrouterApiKey?: string;
   kilocodeApiKey?: string;
   litellmApiKey?: string;

@@ -292,6 +292,23 @@ describe("onboard (non-interactive): provider auth", () => {
     });
   });
 
+  it("infers Groq auth choice from --groq-api-key and sets default model", async () => {
+    await withOnboardEnv("openclaw-onboard-groq-infer-", async (env) => {
+      const cfg = await runOnboardingAndReadConfig(env, {
+        groqApiKey: "groq-test-key", // pragma: allowlist secret
+      });
+
+      expect(cfg.auth?.profiles?.["groq:default"]?.provider).toBe("groq");
+      expect(cfg.auth?.profiles?.["groq:default"]?.mode).toBe("api_key");
+      expect(cfg.agents?.defaults?.model?.primary).toBe("groq/llama-3.3-70b-versatile");
+      await expectApiKeyProfile({
+        profileId: "groq:default",
+        provider: "groq",
+        key: "groq-test-key",
+      });
+    });
+  });
+
   it("stores Volcano Engine API key and sets default model", async () => {
     await withOnboardEnv("openclaw-onboard-volcengine-", async (env) => {
       const cfg = await runOnboardingAndReadConfig(env, {

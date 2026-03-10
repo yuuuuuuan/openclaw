@@ -413,6 +413,13 @@ describe("applyAuthChoice", () => {
         provider: "litellm",
         expectedModelPrefix: "litellm/",
       },
+      {
+        tokenProvider: "gRoQ",
+        token: "sk-groq-token-provider-test",
+        profileId: "groq:default",
+        provider: "groq",
+        expectedModelPrefix: "groq/",
+      },
     ];
     for (const scenario of scenarios) {
       await setupTempState();

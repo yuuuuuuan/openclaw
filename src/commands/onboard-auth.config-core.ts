@@ -33,6 +33,7 @@ import type { ModelApi } from "../config/types.models.js";
 import { KILOCODE_BASE_URL } from "../providers/kilocode-shared.js";
 import {
   HUGGINGFACE_DEFAULT_MODEL_REF,
+  GROQ_DEFAULT_MODEL_REF,
   KILOCODE_DEFAULT_MODEL_REF,
   MISTRAL_DEFAULT_MODEL_REF,
   OPENROUTER_DEFAULT_MODEL_REF,
@@ -71,6 +72,8 @@ import {
   GROQ_DEFAULT_MODEL_ID,
   MISTRAL_BASE_URL,
   MISTRAL_DEFAULT_MODEL_ID,
+  GROQ_BASE_URL,
+  GROQ_DEFAULT_MODEL_ID,
   QIANFAN_BASE_URL,
   QIANFAN_DEFAULT_MODEL_REF,
   KIMI_CODING_MODEL_ID,
@@ -459,6 +462,30 @@ export function applyMistralProviderConfig(cfg: OpenClawConfig): OpenClawConfig 
 export function applyMistralConfig(cfg: OpenClawConfig): OpenClawConfig {
   const next = applyMistralProviderConfig(cfg);
   return applyAgentDefaultModelPrimary(next, MISTRAL_DEFAULT_MODEL_REF);
+}
+
+export function applyGroqProviderConfig(cfg: OpenClawConfig): OpenClawConfig {
+  const models = { ...cfg.agents?.defaults?.models };
+  models[GROQ_DEFAULT_MODEL_REF] = {
+    ...models[GROQ_DEFAULT_MODEL_REF],
+    alias: models[GROQ_DEFAULT_MODEL_REF]?.alias ?? "Groq",
+  };
+
+  const defaultModel = buildGroqModelDefinition();
+
+  return applyProviderConfigWithDefaultModel(cfg, {
+    agentModels: models,
+    providerId: "groq",
+    api: "openai-completions",
+    baseUrl: GROQ_BASE_URL,
+    defaultModel,
+    defaultModelId: GROQ_DEFAULT_MODEL_ID,
+  });
+}
+
+export function applyGroqConfig(cfg: OpenClawConfig): OpenClawConfig {
+  const next = applyGroqProviderConfig(cfg);
+  return applyAgentDefaultModelPrimary(next, GROQ_DEFAULT_MODEL_REF);
 }
 
 export { KILOCODE_BASE_URL };
